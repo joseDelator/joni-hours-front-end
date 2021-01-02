@@ -5,6 +5,8 @@ export class Addinghours extends Component {
         time:"",
         name:"",
         date:"", 
+        start: "",
+        end: "",
 
         output: [],
         show:false 
@@ -20,11 +22,11 @@ export class Addinghours extends Component {
         try {
           
          
-          const response = await fetch("https://jonis-google-sheet.herokuapp.com/addhours/"+this.state.name+'/'+this.state.time.toString()+'/'+this.state.date.toString())
+          const response = await fetch("https://jonis-google-sheet.herokuapp.com/addhours/"+this.state.name+'/'+this.state.date.toString()+"/"+this.state.start.toString()+"/"+this.state.end.toString())
           
           const jsonData = await response.json();
           this.setState({output: jsonData})
-          this.setState({time:"", date:"",  name:"", show: true})
+          this.setState({time:"", date:"",  start:"", end:"",name:"", show: true})
           console.log(jsonData)
 
         } catch (err) {
@@ -66,18 +68,22 @@ export class Addinghours extends Component {
                 required
                />
                 
-                <input 
-                  type="number"
-                  min ="1"
-                  max="20"
-                  name="time"
-                 
-                  placeholder="hours"
-                  value={this.state.time}
-                  onChange={this.onChange1}
-                  required/>
+                
+                   <input type="time"
+                    value={this.state.start}
+                    onChange={this.onChange1}
+                    name="start"
+                    placeholder="Start"
+                    required/>
+                    
+                  <input type="time"
+                    value={this.state.end}
+                    onChange={this.onChange1}
+                    name="end"
+                    placeholder="End"
+                    required/>
                   
-                   <button >add</button>    
+                   <button>ADD</button>    
               </form>
               
               </div>

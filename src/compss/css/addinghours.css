@@ -1,16 +1,17 @@
 .container{
     position: absolute;
     margin-left: 1%;
-    background-color: silver;
+    background: #0F2027; 
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); 
+    min-height: 360px;
     width: 98%;
     border-radius: 10px;
-    
-    
+    max-width: 700px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     height: 90vh;
-    display: flex;
-    flex-direction: column;
-	align-items: center;
+    font-family: 'Noto Sans TC', sans-serif;
+   
   }
   form{
       height: 100%;
@@ -24,13 +25,13 @@ input{
     
     left: 50%;
     font-size: 100%;
-    width: 99%;
+    width: 95%;
     height: 50px;
     margin-left: .5%;
-    border-radius: 2px;
+    border-radius: 5px;
     border: 0;
     box-sizing: border-box;
-    
+    font-weight: bolder;
   }
   input:focus{
     outline: none !important;
@@ -39,20 +40,18 @@ input{
     color: green;
   }
   button{
-    position: absolute;
-    width: 100%;
-    background-color: lightslategray;
+   
+    background-color: whitesmoke;
     border: 0px solid;
     box-sizing: border-box;
-    height: 30px;
-    
-    border-radius: 0px 0px 5px 5px;
+    height: 40px;
+    width: 80px;
+    border-radius: 5px;
     bottom: 0;
+    font-weight: bolder;
   }
   @media(min-width: 1000px){
-
     .container{
-    
       width: 1000px;
       left: calc(50% - 500px);
       position: relative;
