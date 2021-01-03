@@ -4,13 +4,14 @@ export class Addinghours extends Component {
     state={
         time:"",
         name:"",
-        date:"2021-12-12", 
+        date: this.ToDate(), 
         start: "12:00",
         end: "12:00",
 
         output: [],
         show:false 
       };
+     
       onChange1= (e) => {
         
         this.setState( { [e.target.name]: e.target.value});
@@ -21,21 +22,35 @@ export class Addinghours extends Component {
        e.preventDefault();
         try {
           
-         this.setState({show:false})
+         
           const response =  await fetch("https://jonis-google-sheet.herokuapp.com/addhours/"+this.state.name+'/'+this.state.date.toString()+"/"+this.state.start.toString()+"/"+this.state.end.toString())
           
           const jsonData =  await response.json();
           this.setState({output: jsonData})
-          this.setState({time:"", date:"",  start:"", end:"",name:"", show: true})
+          this.setState({time:"",time:"",  start:"", end:"",name:"", show: true})
           console.log(jsonData)
-
+          
         } catch (err) {
           console.error(err.message);
         }
       };
       
+      ToDate () {
+        
+      
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = yyyy + '-' + mm + '-' + dd;
+        console.log(today)
+      return today
+        
+          
+          
+        } 
     render(){
-       
+      
        const conditional= ()=> {
            if(this.state.show){
           return <h2>Time has Been Added</h2>
@@ -48,6 +63,7 @@ export class Addinghours extends Component {
 
 
       return (
+
           <Fragment>
              {conditional()}
              <div className="container">
