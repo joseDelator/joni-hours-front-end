@@ -4,9 +4,9 @@ export class Addinghours extends Component {
     state={
         time:"",
         name:"",
-        date:"", 
-        start: "",
-        end: "",
+        date:"2021-12-12", 
+        start: "12:00",
+        end: "12:00",
 
         output: [],
         show:false 
@@ -21,10 +21,10 @@ export class Addinghours extends Component {
        e.preventDefault();
         try {
           
-         
-          const response = await fetch("https://jonis-google-sheet.herokuapp.com/addhours/"+this.state.name+'/'+this.state.date.toString()+"/"+this.state.start.toString()+"/"+this.state.end.toString())
+         this.setState({show:false})
+          const response =  await fetch("https://jonis-google-sheet.herokuapp.com/addhours/"+this.state.name+'/'+this.state.date.toString()+"/"+this.state.start.toString()+"/"+this.state.end.toString())
           
-          const jsonData = await response.json();
+          const jsonData =  await response.json();
           this.setState({output: jsonData})
           this.setState({time:"", date:"",  start:"", end:"",name:"", show: true})
           console.log(jsonData)
@@ -35,11 +35,11 @@ export class Addinghours extends Component {
       };
       
     render(){
-       var output= this.state.output
+       
        const conditional= ()=> {
-           //if(this.state.show){
-          return <h2>{output}</h2>
-         //  }
+           if(this.state.show){
+          return <h2>Time has Been Added</h2>
+         }
        }
         
               
@@ -60,6 +60,7 @@ export class Addinghours extends Component {
                 onChange={this.onChange1}
                 required
                />
+               <h3>Date/dia</h3>
                 <input type="date"
                 placeholder="hours"
                 name="date"
@@ -68,14 +69,14 @@ export class Addinghours extends Component {
                 required
                />
                 
-                
+                <h3>start hour</h3>
                    <input type="time"
                     value={this.state.start}
                     onChange={this.onChange1}
                     name="start"
                     placeholder="Start"
                     required/>
-                    
+                  <h3>Endhour</h3>
                   <input type="time"
                     value={this.state.end}
                     onChange={this.onChange1}

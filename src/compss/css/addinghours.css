@@ -7,20 +7,14 @@
     min-height: 360px;
     width: 98%;
     border-radius: 10px;
-    max-width: 700px;
+   
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    height: 90vh;
+    
+    justify-content: center;
     font-family: 'Noto Sans TC', sans-serif;
    
   }
-  form{
-      height: 100%;
-      width: 100%;
-      justify-content: space-around;
-      display: flex;
-      flex-direction: column;
-      align-items: center; 
-  }
+  
 input{
     
     left: 50%;
@@ -33,11 +27,15 @@ input{
     box-sizing: border-box;
     font-weight: bolder;
   }
+
   input:focus{
     outline: none !important;
     
     
-    color: green;
+    
+  }
+  input:nth-child(1){
+    margin-top: 20px;
   }
   button{
    
@@ -49,63 +47,13 @@ input{
     border-radius: 5px;
     bottom: 0;
     font-weight: bolder;
+    margin: 20px;
   }
-  input[type=time] {
-    border: none;
-    color: #2a2c2d;
-    font-size: 14px;
-    font-family: helvetica;
-    width: 95%;
-  }
-  
-  /* Wrapper around the hour, minute, second, and am/pm fields as well as 
-  the up and down buttons and the 'X' button */
-  input[type=time]::-webkit-datetime-edit-fields-wrapper {
+  h3{
+    color: whitesmoke;
     display: flex;
+   margin-left: 10px;
   }
-  
-  /* The space between the fields - between hour and minute, the minute and 
-  second, second and am/pm */
-  input[type=time]::-webkit-datetime-edit-text {
-    padding: 19px 4px;
-  }
-  
-  /* The naming convention for the hour, minute, second, and am/pm field is
-  `-webkit-datetime-edit-{field}-field` */
-  
-  /* Hour */
-  input[type=time]::-webkit-datetime-edit-hour-field {
-    background-color: #f2f4f5;
-    border-radius: 15%;
-    padding: 19px 13px;
-  }
-  
-  /* Minute */
-  input[type=time]::-webkit-datetime-edit-minute-field {
-    background-color: #f2f4f5;
-    border-radius: 15%;
-    padding: 19px 13px;
-  }
-  
-  /* AM/PM */
-  input[type=time]::-webkit-datetime-edit-ampm-field {
-    background-color: #0d10b6;
-    border-radius: 15%;
-    color: #fff;
-    padding: 19px 13px;
-    
-  }
-  
-  /* 'X' button for resetting/clearing time */
-  input[type=time]::-webkit-clear-button {
-    display: none;
-  }
-  
-  /* Up/Down arrows for incrementing/decrementing the value */
-  input[type=time]::-webkit-inner-spin-button {
-    display: none;
-  }
-  
   @media(min-width: 1000px){
     .container{
       width: 1000px;
