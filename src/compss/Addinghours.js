@@ -6,11 +6,11 @@ export class Addinghours extends Component {
         name:"",
         date: this.ToDate(), 
         start: "12:00",
-        end: "12:00",
-
+        end: this.Totime(),
         output: [],
         show:false 
       };
+
      
       onChange1= (e) => {
         
@@ -38,17 +38,27 @@ export class Addinghours extends Component {
       ToDate () {
         
       
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
         today = yyyy + '-' + mm + '-' + dd;
-        console.log(today)
-      return today
         
+        return today;   
+      } 
+        Totime () {
+          let today = new Date();
+          let  hour = String(today.getHours()).padStart(2, '0');
+          if(today.getHours().toString< 2){
+            console.log("this is gonna work")
+          }
+          var time = hour + ":" + today.getMinutes()
+          console.log(time)
+          return time;
           
-          
-        } 
+            
+            
+          } 
     render(){
       
        const conditional= ()=> {
